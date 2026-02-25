@@ -1,2 +1,7 @@
-__TBD__
-Specify upon finalizing language, dataset, and IDE(s).
+# Ignore data files
+data/
+
+# Ignore .csv
+*.csv
+
+# Ignores samples, skinny table as of now. Can be changed if needed.
