@@ -39,8 +39,11 @@ tail -n +2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f3 | grep -v '^$' | sort |
 tail -n +2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f14 | grep -v '^$' | sort | uniq -c | sort -nr > "$DATA_DIR/../out/freq_winner_ioc.txt"
 
 # top-N entity list: top 100 players with the most wins
-tail -n+2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f8 | grep -v '^$' | sort | uniq -c | sort -nr | head -100 > "$DATA_DIR/../out/top100_winners.txt"
+tail -n+2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f11 | grep -v '^$' | sort | uniq -c | sort -nr | head -100 > "$DATA_DIR/../out/top100_winners.txt"
 
 # skinny table: columns tourney_id, tourney_name, tourney_level
 head -n 1 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f1,2,5 > "$DATA_DIR/../out/matches_skinny.csv"
 tail -n+2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f1,2,5| sort -u >> "$DATA_DIR/../out/matches_skinny.csv"
+
+# case insensitive & invert search example
+tail -n +2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f3 | grep -v '^$' | grep -vi "carpet" | sort | uniq -c | sort -nr > "$DATA_DIR/../out/grep_vi_example.txt"
