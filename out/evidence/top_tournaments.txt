@@ -1,0 +1,20 @@
+Wimbledon|16799
+US Open|16616
+Roland Garros|13142
+Australian Open|10360
+Hard|6572
+M15 Monastir|6477
+Clay|4480
+M15 Antalya|4318
+Miami Masters|3842
+Barcelona|3499
+Indian Wells Masters|3277
+Washington|3072
+Queen's Club|2912
+Rome Masters|2559
+Kitzbuhel|2443
+Indianapolis|2429
+Cincinnati Masters|2299
+Monte Carlo Masters|2294
+Canada Masters|2185
+Stockholm|2108
