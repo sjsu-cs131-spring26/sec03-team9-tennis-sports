@@ -1,0 +1,11 @@
+
+ASSUMPTION TEST 3: MATCH LENGTH FILTER
+
+Matches longer than 180 minutes:
+5425
+
+Matches shorter than 20 minutes:
+616
+
+Total matches checked:
+914992
