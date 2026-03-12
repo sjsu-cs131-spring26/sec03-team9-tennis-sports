@@ -1,0 +1,43 @@
+# Ops proof for Sprint 3
+# Paste the commands you ran and the outputs for monitoring.
+
+# 1) Run the script in the background
+./scripts/run_sprint3.sh <DATASET_PATH> <DELIM> &
+# output
+[1] 2297972
+Script contents...
+
+# 2) Record the job id and PID shown by your shell, then capture monitoring output
+jobs
+# output
+[1]+  Running                 ./scripts/run_sprint3.sh data/raw/atp_matches.csv ',' &
+
+
+# Replace <PID> with the actual process id
+ps -p <PID> -o pid,etime,cmd
+#output
+  PID     ELAPSED CMD
+[1]+  Done                    ./scripts/run_sprint3.sh data/raw/atp_matches.csv ','
+
+# 3) Show that logs are being written
+tail -n 20 out/run_sprint3.log
+# output
+  115 URS
+    124 GUA
+    127 KEN
+    130 ESA
+    134 LIB
+    144 EST
+    149 SEN
+    152 KUW
+    157 CUB
+    160 ALG
+    163 CIV
+    181 PUR
+    194 MAS
+
+Number of countries with less than 200 matches:
+66
+
+
+Sprint 3 run complete
