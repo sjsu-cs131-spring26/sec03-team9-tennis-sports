@@ -1,0 +1,98 @@
+import pandas as pd
+import sqlite3
+import os
+
+# ------------------------------------------------
+# Create output folder
+# ------------------------------------------------
+os.makedirs("out/evidence", exist_ok=True)
+
+print("Loading dataset...")
+
+# ------------------------------------------------
+# Load dataset
+# ------------------------------------------------
+try:
+    df = pd.read_csv("data/matches.csv")
+    source = "matches.csv"
+except:
+    conn = sqlite3.connect("data/database.sqlite")
+    df = pd.read_sql_query("SELECT * FROM matches", conn)
+    source = "database.sqlite"
+
+print(f"Dataset loaded from: {source}")
+
+# ------------------------------------------------
+# Clean column names
+# ------------------------------------------------
+df.columns = df.columns.str.lower().str.strip()
+
+# ------------------------------------------------
+# Clean surface column
+# ------------------------------------------------
+df["surface"] = df["surface"].astype(str).str.strip().str.title()
+
+valid_surfaces = ["Hard", "Clay", "Grass", "Carpet"]
+df = df[df["surface"].isin(valid_surfaces)]
+
+# ------------------------------------------------
+# Clean minutes column
+# ------------------------------------------------
+df["minutes"] = pd.to_numeric(df["minutes"], errors="coerce")
+
+# ------------------------------------------------
+# Create year column
+# ------------------------------------------------
+df["year"] = df["tourney_date"].astype(str).str[:4]
+
+# =================================================
+# ASSUMPTION TEST 1
+# Composite Key Uniqueness
+# =================================================
+print("\nRunning key uniqueness test...")
+
+df["match_key"] = df["tourney_id"].astype(str) + "_" + df["match_num"].astype(str)
+
+total_rows = len(df)
+unique_keys = df["match_key"].nunique()
+duplicates = total_rows - unique_keys
+
+artifact1 = pd.DataFrame({
+    "metric": ["total_rows", "unique_match_keys", "duplicate_matches"],
+    "value": [total_rows, unique_keys, duplicates]
+})
+
+artifact1.to_csv("out/evidence/match_key_quality.csv", index=False)
+
+print("✓ key uniqueness test completed")
+
+# =================================================
+# ASSUMPTION TEST 2
+# Surface distribution
+# =================================================
+print("Running surface distribution test...")
+
+surface_counts = df["surface"].value_counts()
+
+surface_counts.to_csv("out/evidence/surface_distribution.csv")
+
+print("✓ surface distribution test completed")
+
+# =================================================
+# ASSUMPTION TEST 3
+# Filter rule breadth (long matches)
+# =================================================
+print("Running long match filter test...")
+
+long_matches = df[df["minutes"] > 180]
+
+artifact2 = pd.DataFrame({
+    "metric": ["long_matches_count", "long_matches_percent"],
+    "value": [len(long_matches), len(long_matches) / len(df)]
+})
+
+artifact2.to_csv("out/evidence/filter_rule_test.csv", index=False)
+
+print("✓ filter rule test completed")
+
+print("\nArtifacts saved in out/evidence/")
