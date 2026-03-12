@@ -7,8 +7,8 @@ Evidence reviewed
 - A1: Decision Driving Artifact 1 - Cohort Comparison - Winner / Loser Ace Rates
 - A2: Decision Driving Artifact 2 – Top-N by Impact – Top 20 Countries by Win Rate
 - A3: Decision Driving Artifact 3 – Trend Slice – Player Height by Decade
-- Trust check:
-- Assumption test:
+- Trust check: Missingness summary for height column
+- Assumption test: Filtering rule scope for countries with less than 200 games played
 
 Final recommendation (draft)
 - R1: Prioritize serving effectiveness: Players with higher ace rates and strong first-serve point win percentages are significantly more likely to win matches, making serve performance a key selection metric during recruitment.
