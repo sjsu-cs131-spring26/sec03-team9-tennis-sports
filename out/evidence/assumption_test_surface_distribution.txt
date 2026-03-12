@@ -1,7 +1,0 @@
-ASSUMPTION TEST 2: SURFACE VALUE DISTRIBUTION
-
-surface
-Clay      430890
-Hard      382418
-Grass      52600
-Carpet     49084
