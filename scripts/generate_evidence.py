@@ -49,7 +49,7 @@ df["year"] = df["tourney_date"].astype(str).str[:4]
 df = df.dropna(subset=["winner_name","loser_name"])
 
 # =====================================================
-# 1️⃣ Top-N by Impact
+# ️⃣Top-N by Impact
 # Top 10 players with most wins
 # =====================================================
 
@@ -66,7 +66,7 @@ top_winners.to_csv(
 )
 
 # =====================================================
-# 2️⃣ Cohort Comparison
+#  Cohort Comparison
 # Surface performance comparison
 # =====================================================
 
@@ -101,7 +101,7 @@ matches_per_year.to_csv(
 )
 
 # =====================================================
-# 4️⃣ Rule-Based Flags
+# ⃣ Rule-Based Flags
 # Flag long matches >180 minutes
 # =====================================================
 
@@ -116,7 +116,7 @@ long_matches[
 )
 
 # =====================================================
-# 5️⃣ Optional Join-Enriched Summary
+#  Optional Join-Enriched Summary
 # Ranking difference analysis
 # =====================================================
 
