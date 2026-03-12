@@ -3,7 +3,9 @@ bash-4.4$ tail -n+2 data/raw/atp_matches.csv | cut -d, -f8 | grep -v '^$' |sort 
 bash-4.4$ cat std[K[K[K[Ke[K errors.txt
 head: cannot open 'tee' for reading: No such file or directory
 head: cannot open 'out/top100_winners.txt' for reading: No such file or directory
-bash-4.4$ cat errors.txt[C[C[C[C[C[C[C[C[C[Ctail -n+2 data/raw/atp_matches.csv | cut -d, -f8 | grep -v '^$' |sort || uniq -c | sort -nr | head -100 tee out/top100_winners.txt 2> errors.txt | head  -5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C|tee out/top100_winners.txt 2> errors.txt | head -5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+bash-4.4$ cat errors.txt[C[C[C[C[C[C[C[C[C[Ctail -n+2 data/raw/atp_matches.csv | # case insensitive & invert search example
+tail -n +2 "$DATA_DIR/raw/atp_matches.csv" | cut -d, -f3 | grep -v '^$' | grep -vi "carpet" | sort | uniq -c | sort -nr > "$DATA_DIR/../out/grep_vi_example.txt"
+cut -d, -f8 | grep -v '^$' |sort || uniq -c | sort -nr | head -100 tee out/top100_winners.txt 2> errors.txt | head  -5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C|tee out/top100_winners.txt 2> errors.txt | head -5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
 [C[C[C[C
    1279 100284
    1265 103819
