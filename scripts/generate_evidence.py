@@ -2,54 +2,94 @@ import pandas as pd
 import sqlite3
 import os
 
-# --------------------------------------------------
-# Create evidence folder
-# --------------------------------------------------
+# ------------------------------------------------
+# Create output folder
+# ------------------------------------------------
 os.makedirs("out/evidence", exist_ok=True)
 
 print("Loading dataset...")
 
-# --------------------------------------------------
-# Load dataset (CSV or SQLite)
-# --------------------------------------------------
+# ------------------------------------------------
+# Load dataset (supports CSV or SQLite)
+# ------------------------------------------------
 try:
     df = pd.read_csv("data/matches.csv")
     print("Loaded matches.csv")
 except:
-    try:
-        conn = sqlite3.connect("data/database.sqlite")
-        df = pd.read_sql_query("SELECT * FROM matches", conn)
-        print("Loaded database.sqlite")
-    except:
-        print("ERROR: dataset not found in data/")
-        exit()
+    conn = sqlite3.connect("data/database.sqlite")
+    df = pd.read_sql_query("SELECT * FROM matches", conn)
+    print("Loaded database.sqlite")
 
-# --------------------------------------------------
-# Clean columns
-# --------------------------------------------------
+# ------------------------------------------------
+# Clean column names
+# ------------------------------------------------
 df.columns = df.columns.str.lower().str.strip()
 
-# --------------------------------------------------
-# Clean surface column
-# --------------------------------------------------
+# ------------------------------------------------
+# Clean surface values
+# ------------------------------------------------
 df["surface"] = df["surface"].astype(str).str.strip().str.title()
 
 valid_surfaces = ["Hard", "Clay", "Grass", "Carpet"]
+df = df[df["surface"].isin(valid_surfaces)]
 
-df_clean = df[df["surface"].isin(valid_surfaces)]
+# ------------------------------------------------
+# Clean match duration
+# ------------------------------------------------
+df["minutes"] = pd.to_numeric(df["minutes"], errors="coerce")
 
-# --------------------------------------------------
+# ------------------------------------------------
 # Create year column
-# --------------------------------------------------
-df_clean["year"] = df_clean["tourney_date"].astype(str).str[:4]
+# ------------------------------------------------
+df["year"] = df["tourney_date"].astype(str).str[:4]
 
-# ==================================================
-# 1️⃣ DECISION ARTIFACT
-# Trend: Matches per Year
-# ==================================================
+# ------------------------------------------------
+# Remove rows missing key information
+# ------------------------------------------------
+df = df.dropna(subset=["winner_name","loser_name"])
+
+# =====================================================
+# 1️⃣ Top-N by Impact
+# Top 10 players with most wins
+# =====================================================
+
+top_winners = (
+    df["winner_name"]
+    .value_counts()
+    .head(10)
+)
+
+top_winners.to_csv(
+    "out/evidence/top10_players_by_wins.txt",
+    sep="\t",
+    header=["total_wins"]
+)
+
+# =====================================================
+# 2️⃣ Cohort Comparison
+# Surface performance comparison
+# =====================================================
+
+surface_stats = (
+    df.groupby("surface")
+    .agg(
+        matches=("surface","count"),
+        avg_match_duration=("minutes","mean")
+    )
+)
+
+surface_stats.to_csv(
+    "out/evidence/surface_cohort_comparison.txt",
+    sep="\t"
+)
+
+# =====================================================
+# 3️⃣ Trend Slice
+# Matches played per year
+# =====================================================
 
 matches_per_year = (
-    df_clean.groupby("year")
+    df.groupby("year")
     .size()
     .sort_index()
 )
@@ -60,40 +100,12 @@ matches_per_year.to_csv(
     header=["match_count"]
 )
 
-# ==================================================
-# 2️⃣ DECISION ARTIFACT
-# Top 10 players by wins
-# ==================================================
+# =====================================================
+# 4️⃣ Rule-Based Flags
+# Flag long matches >180 minutes
+# =====================================================
 
-top_winners = df_clean["winner_name"].value_counts().head(10)
-
-top_winners.to_csv(
-    "out/evidence/top10_winners.txt",
-    sep="\t",
-    header=["wins"]
-)
-
-# ==================================================
-# 3️⃣ DECISION ARTIFACT
-# Surface distribution
-# ==================================================
-
-surface_distribution = df_clean["surface"].value_counts()
-
-surface_distribution.to_csv(
-    "out/evidence/surface_distribution.txt",
-    sep="\t",
-    header=["matches"]
-)
-
-# ==================================================
-# 4️⃣ DECISION ARTIFACT
-# Rule-based flag: Long matches
-# ==================================================
-
-df_clean["minutes"] = pd.to_numeric(df_clean["minutes"], errors="coerce")
-
-long_matches = df_clean[df_clean["minutes"] > 180]
+long_matches = df[df["minutes"] > 180]
 
 long_matches[
     ["tourney_name","winner_name","loser_name","minutes"]
@@ -103,112 +115,56 @@ long_matches[
     index=False
 )
 
-# ==================================================
-# 5️⃣ TRUST CHECK
-# Missing values summary
-# ==================================================
+# =====================================================
+# 5️⃣ Optional Join-Enriched Summary
+# Ranking difference analysis
+# =====================================================
 
-missing_summary = df_clean.isnull().sum()
+df["winner_rank"] = pd.to_numeric(df["winner_rank"], errors="coerce")
+df["loser_rank"] = pd.to_numeric(df["loser_rank"], errors="coerce")
 
-missing_summary.to_csv(
-    "out/evidence/missing_summary.txt",
+df["rank_difference"] = df["loser_rank"] - df["winner_rank"]
+
+rank_summary = df["rank_difference"].describe()
+
+rank_summary.to_csv(
+    "out/evidence/ranking_difference_summary.txt",
     sep="\t"
 )
 
-# ==================================================
-# 6️⃣ TRUST CHECK
-# Duplicate match check
-# ==================================================
-
-duplicates = df_clean.duplicated(
-    subset=["tourney_id","match_num"]
-).sum()
-
-duplicate_df = pd.DataFrame({
-    "duplicate_matches":[duplicates]
-})
-
-duplicate_df.to_csv(
-    "out/evidence/duplicate_match_check.txt",
-    sep="\t",
-    index=False
-)
-
-# ==================================================
-# 7️⃣ ASSUMPTION TEST
-# Surface wins summary
-# ==================================================
-
-matches_count = df_clean["surface"].value_counts().sort_index()
-
-wins_count = df_clean.groupby("surface")["winner_name"].count().sort_index()
-
-surface_summary = pd.DataFrame({
-    "matches_played": matches_count,
-    "wins_recorded": wins_count
-})
-
-surface_summary.to_csv(
-    "out/evidence/surface_values_check.txt",
-    sep="\t"
-)
-
-# ==================================================
+# =====================================================
 # Evidence Summary
-# ==================================================
+# =====================================================
 
 summary = f"""
-TENNIS DATASET EVIDENCE SUMMARY
-================================
+Tennis Dataset Evidence Report
+--------------------------------
 
-Dataset: Professional tennis match records
+Total Matches Analyzed: {len(df)}
+Unique Winners: {df['winner_name'].nunique()}
+Surface Types: {df['surface'].nunique()}
 
-Total Matches Analyzed: {len(df_clean)}
-Unique Players: {df_clean['winner_name'].nunique()}
-Surface Types: {df_clean['surface'].nunique()}
+Artifacts Generated:
 
--------------------------------------------------
-Decision-Driving Artifacts
--------------------------------------------------
+1. top10_players_by_wins.txt
+   Shows the players with the most match wins.
 
-1. matches_per_year_trend.txt
-   Shows yearly match volume to identify long-term
-   participation and tournament trends.
+2. surface_cohort_comparison.txt
+   Compares match counts and average match
+   duration across different surfaces.
 
-2. top10_winners.txt
-   Identifies players with the highest match wins,
-   useful for impact and dominance analysis.
-
-3. surface_distribution.txt
-   Shows how matches are distributed across
-   tennis surfaces (Hard, Clay, Grass, Carpet).
+3. matches_per_year_trend.txt
+   Shows how match volume changes over time.
 
 4. long_matches_flag.txt
-   Flags matches longer than 180 minutes,
-   highlighting high-intensity matches.
+   Flags matches longer than 180 minutes.
 
--------------------------------------------------
-Trust Check Artifacts
--------------------------------------------------
+5. ranking_difference_summary.txt
+   Analyzes ranking differences between
+   winners and losers.
 
-5. missing_summary.txt
-   Displays missing values for each column
-   to evaluate dataset completeness.
-
-6. duplicate_match_check.txt
-   Verifies whether duplicate match records exist.
-
--------------------------------------------------
-Assumption Test Artifact
--------------------------------------------------
-
-7. surface_values_check.txt
-   Validates surface values and counts how many
-   matches and wins occur on each surface.
-
--------------------------------------------------
-All evidence artifacts are generated automatically
-by scripts and stored in the out/evidence directory.
+All artifacts were generated automatically
+from cleaned dataset values.
 """
 
 with open("out/evidence/evidence_summary.txt","w") as f:
