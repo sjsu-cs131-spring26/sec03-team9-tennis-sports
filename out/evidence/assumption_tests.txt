@@ -1,0 +1,112 @@
+ASSUMPTION TEST ARTIFACT
+-----------------------
+
+Assumption:
+Countries should have enough match representation.
+
+Method:
+Count games per country using winner_ioc + loser_ioc.
+
+Total countries: 209
+Countries with <200 games: 98
+
+Countries with fewer than 200 games:
+
+ZWE: 1 games
+ITF: 1 games
+VIR: 1 games
+VIN: 1 games
+MDG: 1 games
+MRT: 1 games
+NEP: 1 games
+FIJ: 1 games
+ERI: 1 games
+NPL: 1 games
+PRY: 1 games
+LES: 2 games
+GDR: 2 games
+POC: 2 games
+NMI: 2 games
+LCA: 2 games
+SIN: 2 games
+TWN: 2 games
+LAO: 3 games
+VUT: 3 games
+CGO: 4 games
+COK: 4 games
+YEM: 4 games
+SCG: 4 games
+SUR: 5 games
+TTO: 5 games
+HAW: 5 games
+GUD: 5 games
+GTM: 5 games
+KWT: 6 games
+ISV: 6 games
+BRI: 6 games
+NCA: 6 games
+MHL: 7 games
+PNG: 7 games
+MYA: 8 games
+BER: 8 games
+ETH: 8 games
+NIG: 9 games
+VAN: 10 games
+BRU: 10 games
+GRC: 10 games
+LIE: 11 games
+CEY: 11 games
+TGO: 13 games
+ANG: 13 games
+CUW: 13 games
+ANZ: 13 games
+DEU: 13 games
+CAY: 14 games
+SAM: 14 games
+IRQ: 14 games
+BUR: 15 games
+GUM: 16 games
+URY: 18 games
+MCO: 22 games
+GLP: 26 games
+TAN: 27 games
+FRG: 31 games
+MOZ: 32 games
+OMA: 36 games
+REU: 37 games
+SUD: 39 games
+CAF: 39 games
+ECA: 39 games
+CHL: 40 games
+HON: 40 games
+GAB: 40 games
+TJK: 44 games
+PAN: 44 games
+MLI: 49 games
+CMR: 53 games
+CAR: 56 games
+RHO: 66 games
+SLE: 66 games
+ISL: 67 games
+ARU: 68 games
+SMR: 75 games
+CAM: 84 games
+KSA: 84 games
+ZAM: 84 games
+COD: 84 games
+BAN: 88 games
+MLT: 90 games
+ANT: 93 games
+RWA: 93 games
+TKM: 94 games
+NAM: 95 games
+BRN: 96 games
+BOT: 97 games
+SOL: 99 games
+MAD: 112 games
+UGA: 128 games
+URS: 131 games
+UAE: 133 games
+LBA: 134 games
+TRI: 142 games
+SGP: 166 games
