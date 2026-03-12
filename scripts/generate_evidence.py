@@ -47,13 +47,41 @@ top_winners = (
 top_winners.to_csv("out/evidence/top10_winners.csv")
 
 # =================================================
-# DECISION ARTIFACT 2
-# Surface distribution (cohort comparison)
+
 # =================================================
-surface_distribution = df["surface"].value_counts(dropna=False)
+# ASSUMPTION TEST
+# Clean surface column and count matches & wins
+# =================================================
 
-surface_distribution.to_csv("out/evidence/surface_distribution.csv")
+# Convert to string and clean values
+df["surface"] = df["surface"].astype(str).str.strip().str.title()
 
+# Valid tennis surfaces
+valid_surfaces = ["Hard", "Clay", "Grass", "Carpet"]
+
+# Filter only valid surfaces
+clean_df = df[df["surface"].isin(valid_surfaces)]
+
+# Count matches per surface
+matches_count = clean_df["surface"].value_counts().sort_index()
+
+# Count wins per surface
+wins_count = clean_df.groupby("surface")["winner_name"].count().sort_index()
+
+# Combine results
+surface_summary = pd.DataFrame({
+    "matches_played": matches_count,
+    "wins_recorded": wins_count
+})
+
+# Save clean result
+surface_summary.to_csv(
+    "out/evidence/surface_values_check.txt",
+    sep="\t"
+)
+
+print("Clean surface summary generated.")
+# =================================================
 # =================================================
 # DECISION ARTIFACT 3
 # Trend slice: matches per year
