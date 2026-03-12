@@ -14,7 +14,7 @@ jobs
 
 
 # Replace <PID> with the actual process id
-ps -p <PID> -o pid,etime,cmd
+ps -p 2304491 -o pid,etime,cmd
 #output
   PID     ELAPSED CMD
 [1]+  Done                    ./scripts/run_sprint3.sh data/raw/atp_matches.csv ','
