@@ -1,0 +1,2 @@
+0.0836103 , winner ace rate
+0.0598712 , loser ace rate

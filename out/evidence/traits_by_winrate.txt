@@ -1,0 +1,6 @@
+0.521739 , left hand
+0.521564 , height ≥ 180 cm
+0.502947 , right hand
+0.500583 , age ≤ 26
+0.499417 , age > 26
+0.448878 , height < 180 cm
