@@ -1,0 +1,26 @@
+
+TENNIS DATASET EVIDENCE REPORT
+==============================
+
+Total Matches: 947720
+
+Unique Winners: 18607
+
+Surface Types: 4414
+
+Evidence Artifacts Generated:
+--------------------------------
+1. top10_winners.csv
+2. surface_distribution.csv
+3. matches_per_year.csv
+4. long_matches_flag.csv
+5. missing_summary.csv
+6. duplicate_match_check.csv
+7. surface_values_check.csv
+
+Purpose:
+--------------------------------
+These artifacts support decision analysis, trust checks,
+and assumption testing for the tennis dataset.
+
+Generated automatically via scripts.
