@@ -1,2 +1,2 @@
-duplicate_match_count
+duplicate_matches
 2016

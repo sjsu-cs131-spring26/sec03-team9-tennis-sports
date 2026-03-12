@@ -1,26 +1,52 @@
 
-TENNIS DATASET EVIDENCE REPORT
-==============================
+TENNIS DATASET EVIDENCE SUMMARY
+================================
 
-Total Matches: 947720
+Dataset: Professional tennis match records
 
-Unique Winners: 18607
+Total Matches Analyzed: 914992
+Unique Players: 18391
+Surface Types: 4
 
-Surface Types: 4414
+-------------------------------------------------
+Decision-Driving Artifacts
+-------------------------------------------------
 
-Evidence Artifacts Generated:
---------------------------------
-1. top10_winners.csv
-2. surface_distribution.csv
-3. matches_per_year.csv
-4. long_matches_flag.csv
-5. missing_summary.csv
-6. duplicate_match_check.csv
-7. surface_values_check.csv
+1. matches_per_year_trend.txt
+   Shows yearly match volume to identify long-term
+   participation and tournament trends.
 
-Purpose:
---------------------------------
-These artifacts support decision analysis, trust checks,
-and assumption testing for the tennis dataset.
+2. top10_winners.txt
+   Identifies players with the highest match wins,
+   useful for impact and dominance analysis.
 
-Generated automatically via scripts.
+3. surface_distribution.txt
+   Shows how matches are distributed across
+   tennis surfaces (Hard, Clay, Grass, Carpet).
+
+4. long_matches_flag.txt
+   Flags matches longer than 180 minutes,
+   highlighting high-intensity matches.
+
+-------------------------------------------------
+Trust Check Artifacts
+-------------------------------------------------
+
+5. missing_summary.txt
+   Displays missing values for each column
+   to evaluate dataset completeness.
+
+6. duplicate_match_check.txt
+   Verifies whether duplicate match records exist.
+
+-------------------------------------------------
+Assumption Test Artifact
+-------------------------------------------------
+
+7. surface_values_check.txt
+   Validates surface values and counts how many
+   matches and wins occur on each surface.
+
+-------------------------------------------------
+All evidence artifacts are generated automatically
+by scripts and stored in the out/evidence directory.

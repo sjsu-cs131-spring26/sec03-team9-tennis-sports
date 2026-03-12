@@ -1,4 +1,4 @@
-winner_name	count
+winner_name	wins
 Roger Federer	1305
 Jimmy Connors	1247
 Novak Djokovic	1179
