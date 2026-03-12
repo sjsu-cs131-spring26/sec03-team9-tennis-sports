@@ -13,38 +13,38 @@ List action items with owner, due date, and definition of done.
   Due: 3/11
   Definition of Done: All meeting 1 and 2 agenda/notes/action items files under docs/meetings. Pushed to git.
 
-- Action item: Decision Driving Artifact (1)
-  Owner: Data Engineer ?
+- Action item: Decision Driving Artifact (1), Cohort Comparison, Winner / Loser Ace Rates
+  Owner: Pratheek
   Due: 3/11
   Definition of Done: Decision Driving Artifact (1) reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
  
-- Action item: Decision Driving Artifact (2)
-  Owner: Data Engineer ?
+- Action item: Decision Driving Artifact (2), Top-N by Impact - Top 20 Countries by Win Rate
+  Owner: Pratheek
   Due: 3/11
   Definition of Done: Decision Driving Artifact (2) reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
 
-- Action item: Decision Driving Artifact (3)
-  Owner: Data Engineer ?
+- Action item: Decision Driving Artifact (3), Trend Slice, Player Height by Decade
+  Owner: Updesh
   Due: 3/11
   Definition of Done: Decision Driving Artifact (3) reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
 
-- Action item: 1 Trust Check Artifact
-  Owner: Data Engineer ?
+- Action item: 1 Trust Check Artifact, Missing Height Columns
+  Owner: Updesh
   Due: 3/11
   Definition of Done: One trust check artifact reproducible from run_sprint3.sh and in the evidence pack folder(out/evidence/). Pushed to git.
 
 - Action item: 1 Assumption Test Artifact
-  Owner: Data Engineer ?
+  Owner: Tina
   Due: 3/11
   Definition of Done: One assumption test artifact reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
 
 - Action item: Script Reproducibility
-  Owner: Data Engineer ?
+  Owner: Data Engineer ALL
   Due: 3/11
   Definition of Done: Finalized script pushed to git.
 
 - Action item: Ops Proof Txt File
-  Owner: Data Engineer ?
+  Owner: Pratheek
   Due: 3/11
   Definition of Done: Ops proof txt file pushed to git (out/ops_proof.txt). 
 

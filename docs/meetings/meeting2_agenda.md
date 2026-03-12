@@ -14,6 +14,8 @@ Review evidence artifacts, agree on a recommendation, and finalize the Decision 
 1. Decision Driving Artifact 1 - Cohort Comparison - Winner / Loser Ace Rates
 2. Decision Driving Artifact 2 – Top-N by Impact – Top 20 Countries by Win Rate
 3. Decision Driving Artifact 3 – Trend Slice – Player Height by Decade
+4. Trust Check Artifact - Missingness Summary for Height
+5. Assumption Test Artifact - Filtering Rule for countries with less than 200 games
 
 - What is blocked?
 
@@ -34,10 +36,11 @@ This artifact shows the top 20 countries ranked by player win rate, e.g., SRB (5
 - A3: out/evidence/height_trend_by_decade.txt
 This artifact shows the average player height by decade in main ATP tournaments, e.g., 1960s: 182.45 cm, 1970s: 182.08 cm, 1980s: 183.21 cm, 1990s: 184.72 cm, 2000s: 184.92 cm, 2010s: 187.03 cm, 2020s: 187.48 cm. This matters to the recruiter/scouts decisions because it shows that player height has increased over time among players competing in main ATP tournaments. This suggests that taller players are more likely to succeed at high levels of competition and may have an advantage in match outcomes.
 
-- Trust check: out/evidence/<...>
+- Trust check: out/evidence/trust_check_height.txt
+This artifact shows missingness summary for height column. This is important as it lets us keep in mind that certain data is missing and may skew results. However, we can show stakeholders that the missingness percentage for height is fairly low.
 
-- Assumption test: out/evidence/<...>
-
+- Assumption test: out/evidence/assumption_test.txt
+This artifact checks if filtering rule of countries with less then 200 games is overly broad. This is important for scouts to know because it will ensure that all countries are getting fairly represented within analysis.
 
 3) Recommendation drafting (10 to 15 min)
 Draft 1 to 3 recommendation bullets and verify they are supported by evidence.

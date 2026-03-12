@@ -85,11 +85,11 @@ What we will not do this sprint:
 6) Evidence brainstorm (10 min)
 Candidate evidence artifacts:
 
-- Artifact 1:
-- Artifact 2:
-- Artifact 3:
-- Trust check:
-- Assumption test:
+- Artifact 1: Cohort Comparison - Winner / Loser Ace Rates
+- Artifact 2: Top-N by Impact – Top 20 Countries by Win Rate
+- Artifact 3: Trend Slice – Player Height by Decade
+- Trust check: Height Column Missingness Summary
+- Assumption test: 
 
 7) Risks and limitations (5 to 10 min)
 Finalize 3 to 5 bullets. Make them specific.
@@ -108,19 +108,19 @@ Format: Task | Owner | Deliverable | Due date | Definition of Done (DoD)
 
 2. Document Meeting Artifacts | Shakshi Sharma | Meeting 1 and 2 agenda/notes/action items file, and mitigation file filled out | 3/11 | All meeting files under docs/meetings. Pushed to git. 
 
-3. Decision Driving Artifact (1) | Data Engineer ? | must specifically list out | 3/11 | Decision Driving Artifact 1 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
+3. Decision Driving Artifact (1) | Pratheek | 3/11 | Decision Driving Artifact 1 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
 
-4. Decision Driving Artifact (2) | Data Engineer ? | must specifically list out | 3/11 | Decision Driving Artifact 2 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
+4. Decision Driving Artifact (2) | Pratheek | 3/11 | Decision Driving Artifact 2 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
 
-5. Decision Driving Artifact (3) | Data Engineer ? | must specifically list out | 3/11 | Decision Driving Artifact 3 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
+5. Decision Driving Artifact (3) | Updesh | 3/11 | Decision Driving Artifact 3 reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git.
 
-6. 1 Trust Check Artifact | Data Engineer ? | must specifically list out | 3/11 | One trust check artifact reproducible from run_sprint3.sh and in the evidence pack folder(out/evidence/). Pushed to git. 
+6. 1 Trust Check Artifact | Updesh | 3/11 | One trust check artifact reproducible from run_sprint3.sh and in the evidence pack folder(out/evidence/). Pushed to git. 
 
-7. 1 Assumption Test Artifact | Data Engineer ? | must specifically list out | 3/11 | One assumption test artifact reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
+7. 1 Assumption Test Artifact | Tina | 3/11 | One assumption test artifact reproducible from run_sprint3.sh and in the evidence pack folder (out/evidence/). Pushed to git. 
 
-8. Script Reproducibility | Data Engineer ? | Script meets all assignment requirements and is reproducible, generating 5+ evidence artifacts in (out/evidence/) | 3/11 | Finalized script pushed to git.
+8. Script Reproducibility | Data Engineer ALL | Script meets all assignment requirements and is reproducible, generating 5+ evidence artifacts in (out/evidence/) | 3/11 | Finalized script pushed to git.
 
-9. Ops Proof Txt File | Data Engineer ? | Ops Proof txt file in (out/ops_proof.txt) and includes all requirements listed in assignment | 3/11 | Ops proof txt file pushed to git. 
+9. Ops Proof Txt File | Pratheek | Ops Proof txt file in (out/ops_proof.txt) and includes all requirements listed in assignment | 3/11 | Ops proof txt file pushed to git. 
 
 10. Decision Brief | Md Waez Islam | Decision brief filled out with required sections (stakeholder, question, recommendation, etc) | 3/11 | Finalized decision brief & reviewed with the whole team.
 
