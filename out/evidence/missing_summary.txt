@@ -1,83 +1,83 @@
-,0
-tourney_id,2423
-tourney_name,0
-surface,6393
-draw_size,835
-tourney_level,0
-tourney_date,2972
-match_num,0
-winner_id,26399
-winner_seed,543169
-winner_entry,772157
-winner_name,26399
-winner_hand,45864
-winner_ht,392856
-winner_ioc,26525
-winner_age,40051
-loser_id,26399
-loser_seed,732185
-loser_entry,651580
-loser_name,26399
-loser_hand,47460
-loser_ht,503241
-loser_ioc,26578
-loser_age,56194
-score,3525
-best_of,6
-round,14
-minutes,748394
-w_ace,741862
-w_df,741863
-w_svpt,741863
-w_1stin,741863
-w_1stwon,741863
-w_2ndwon,741863
-w_svgms,741864
-w_bpsaved,741863
-w_bpfaced,741863
-l_ace,741863
-l_df,741862
-l_svpt,741863
-l_1stin,741863
-l_1stwon,741863
-l_2ndwon,741863
-l_svgms,741864
-l_bpsaved,741862
-l_bpfaced,741862
-winner_rank,134235
-winner_rank_points,202533
-loser_rank,201518
-loser_rank_points,261212
-winner1_id,921321
-winner2_id,928588
-loser1_id,921332
-loser2_id,931256
-winner1_name,921451
-winner1_hand,921603
-winner1_ht,921446
-winner1_ioc,921447
-winner1_age,921645
-winner2_name,921645
-winner2_hand,921704
-winner2_ht,921602
-winner2_ioc,929585
-winner2_age,929450
-loser1_name,929450
-loser1_hand,929882
-loser1_ht,929450
-loser1_ioc,929455
-loser1_age,929456
-loser2_name,929456
-loser2_hand,929912
-loser2_ht,929456
-loser2_ioc,929468
-loser2_age,929678
-winner1_rank,929678
-winner1_rank_points,929689
-winner2_rank,929689
-winner2_rank_points,929765
-loser1_rank,929765
-loser1_rank_points,929776
-loser2_rank,929776
-loser2_rank_points,947720
-year,2972
+	0
+tourney_id	0
+tourney_name	0
+surface	0
+draw_size	214
+tourney_level	0
+tourney_date	0
+match_num	0
+winner_id	0
+winner_seed	525946
+winner_entry	763206
+winner_name	0
+winner_hand	18335
+winner_ht	361923
+winner_ioc	115
+winner_age	12973
+loser_id	0
+loser_seed	715450
+loser_entry	645947
+loser_name	0
+loser_hand	20023
+loser_ht	471665
+loser_ioc	169
+loser_age	28266
+score	156
+best_of	0
+round	0
+minutes	715666
+w_ace	709134
+w_df	709135
+w_svpt	709135
+w_1stin	709135
+w_1stwon	709135
+w_2ndwon	709135
+w_svgms	709136
+w_bpsaved	709135
+w_bpfaced	709135
+l_ace	709135
+l_df	709134
+l_svpt	709135
+l_1stin	709135
+l_1stwon	709135
+l_2ndwon	709135
+l_svgms	709136
+l_bpsaved	709134
+l_bpfaced	709134
+winner_rank	104017
+winner_rank_points	171539
+loser_rank	170854
+loser_rank_points	229971
+winner1_id	914992
+winner2_id	914992
+loser1_id	914992
+loser2_id	914992
+winner1_name	914992
+winner1_hand	914992
+winner1_ht	914992
+winner1_ioc	914992
+winner1_age	914992
+winner2_name	914992
+winner2_hand	914992
+winner2_ht	914992
+winner2_ioc	914992
+winner2_age	914992
+loser1_name	914992
+loser1_hand	914992
+loser1_ht	914992
+loser1_ioc	914992
+loser1_age	914992
+loser2_name	914992
+loser2_hand	914992
+loser2_ht	914992
+loser2_ioc	914992
+loser2_age	914992
+winner1_rank	914992
+winner1_rank_points	914992
+winner2_rank	914992
+winner2_rank_points	914992
+loser1_rank	914992
+loser1_rank_points	914992
+loser2_rank	914992
+loser2_rank_points	914992
+year	0
