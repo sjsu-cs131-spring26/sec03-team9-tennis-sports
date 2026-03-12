@@ -1,5 +1,0 @@
-surface	matches
-Clay	430890
-Hard	382418
-Grass	52600
-Carpet	49084

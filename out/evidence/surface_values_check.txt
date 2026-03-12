@@ -1,5 +1,0 @@
-surface	matches_played	wins_recorded
-Carpet	49084	49084
-Clay	430890	430890
-Grass	52600	52600
-Hard	382418	382418
