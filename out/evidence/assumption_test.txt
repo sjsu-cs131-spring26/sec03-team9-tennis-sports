@@ -1,0 +1,9 @@
+
+ASSUMPTION TEST 1: TOURNEY_ID CLEANLINESS
+
+Total rows: 914992
+Unique tourney_id: 29922
+Missing tourney_id: 0
+
+Duplicate rows based on tourney_id:
+885070
