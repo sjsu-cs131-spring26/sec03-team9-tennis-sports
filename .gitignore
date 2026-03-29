@@ -5,3 +5,5 @@ data/
 *.csv
 
 # Ignores samples, skinny table as of now. Can be changed if needed.
+out/
+logs/
