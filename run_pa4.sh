@@ -17,13 +17,22 @@ s/\t{2,}/\tNA\t/g
 head -5 out/data_cleaned.tsv > out/data_cleaned_sample.tsv
 
 # -------- PART 2: FILTERING (Updesh) --------
-# to be added
-
+awk -F'\t' 'BEGIN {OFS="\t"} 
+NR==1 || ($6 != "" && $6 != "NA" && $11 != "" && $11 != "NA" && $21 != "" && $21 != "NA") 
+' out/data_cleaned.tsv > out/data_filtered.tsv
+head -n 11 out/data_filtered.tsv > out/data_filtered_sample.tsv
 # -------- PART 3: RATIOS (Tina) --------
 # to be added
 
 # -------- PART 4: TEMPORAL (Updesh) --------
-# to be added
+awk -F'\t' 'BEGIN {OFS="\t"; print "month\tmatch_count"} 
+NR > 1 {
+    ym = substr($6, 1, 4) "-" substr($6, 5, 2)
+    if (ym ~ /^[0-9]{4}-[0-9]{2}$/) { count[ym]++ }
+} 
+END {
+    for (m in count) print m, count[m]
+}' out/data_filtered.tsv | sort > out/monthly_summary.tsv
 
 # -------- PART 5: SIGNALS (Waez) --------
 awk -F'\t' '
