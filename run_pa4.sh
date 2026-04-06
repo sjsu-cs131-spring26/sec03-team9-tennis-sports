@@ -3,8 +3,6 @@ set -euo pipefail
 
 INPUT_FILE=$1
 
-chmod -R g+rX "$INPUT_FILE"
-
 mkdir -p out logs
 LOG_FILE="logs/pipeline.log"
 echo "[$(date)] Pipeline started" > "$LOG_FILE"
